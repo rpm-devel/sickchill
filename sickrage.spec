@@ -7,26 +7,26 @@ Group:		Web
 License:	GPLv3
 URL:		https://github.com/SickChill/SickChill
 Source0:	https://github.com/SickChill/SickChill
-Source1:        sickchill.service
-Source2:        sickchill-bt.service
+Source1:        sickrage.service
+Source2:        sickrage-bt.service
 Source3:        transmission-settings.json
 BuildRequires:	transmission-daemon python3-virtualenv
-Requires:       python
+Requires:       python3
 
 %description
 
 
 %prep
-%setup -q
-
+%clean
+git clone -q %{URL} .
 
 %build
-%configure
-make %{?_smp_mflags}
+#%configure
+#make %{?_smp_mflags}
 
 
 %install
-%make_install
+#%make_install
 
 
 %files
